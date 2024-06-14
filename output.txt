@@ -1,0 +1,158 @@
+?- basicType(X).
+X = ghost ;
+X = psychic ;
+X = fighting ;
+X = normal ;
+X = dark.
+
+?- monsterMove(X, Y).
+X = annihilape,
+Y = lowKick ;
+X = annihilape,
+Y = shadowPunch ;
+X = annihilape,
+Y = rageFist ;
+X = annihilape,
+Y = bodySlam ;
+X = espathra,
+Y = psybeam ;
+X = espathra,
+Y = quickAttack ;
+X = espathra,
+Y = lowKick ;
+X = espathra,
+Y = shadowBall ;
+X = flamigo,
+Y = lowKick ;
+X = flamigo,
+Y = payback ;
+X = flamigo,
+Y = megaKick ;
+X = flamigo,
+Y = closeCombat ;
+X = lechonk,
+Y = tackle ;
+X = lechonk,
+Y = takeDown ;
+X = lechonk,
+Y = zenHeadbutt ;
+X = lechonk,
+Y = bodySlam ;
+X = mabosstiff,
+Y = snarl ;
+X = mabosstiff,
+Y = lick ;
+X = mabosstiff,
+Y = bite ;
+X = mabosstiff,
+Y = bodySlam.
+
+?- typeEffectiveness(X,psychic,fighting).                                                                           
+X = strong.
+
+?- moreEffective(strong,ordinary).
+true.
+
+?- moreEffectiveThan(strong,ordinary).
+true .
+
+?- monsterMoveMatch(psychic,flamigo,lechonk,tackle).
+false.
+
+?- moreEffectiveMoveType(flamigo:payback,lechonk:takeDown,fighting).
+false.
+
+?- moreEffectiveMove(flamigo,lowKick,lechonk,takeDown).
+true .
+
+?- basicType(X).
+X = ghost ;
+X = psychic ;
+X = fighting ;
+X = normal ;
+X = dark.
+
+?- monsterMove(X, Y).
+X = annihilape,
+Y = lowKick ;
+X = annihilape,
+Y = shadowPunch ;
+X = annihilape,
+Y = rageFist ;
+X = annihilape,
+Y = bodySlam ;
+X = espathra,
+Y = psybeam ;
+X = espathra,
+Y = quickAttack ;
+X = espathra,
+Y = lowKick ;
+X = espathra,
+Y = shadowBall ;
+X = flamigo,
+Y = lowKick ;
+X = flamigo,
+Y = payback ;
+X = flamigo,
+Y = megaKick ;
+X = flamigo,
+Y = closeCombat ;
+X = lechonk,
+Y = tackle ;
+X = lechonk,
+Y = takeDown ;
+X = lechonk,
+Y = zenHeadbutt ;
+X = lechonk,
+Y = bodySlam ;
+X = mabosstiff,
+Y = snarl ;
+X = mabosstiff,
+Y = lick ;
+X = mabosstiff,
+Y = bite ;
+X = mabosstiff,
+Y = bodySlam.
+
+?- typeEffectiveness(strong, Y, Z).
+Y = psychic,
+Z = fighting ;
+Y = fighting,
+Z = dark ;
+Y = fighting,
+Z = normal ;
+Y = dark,
+Z = psychic ;
+Y = dark,
+Z = ghost ;
+Y = ghost,
+Z = psychic ;
+Y = Z, Z = ghost.
+
+?- moreEffective(X, Y).
+X = strong,
+Y = ordinary ;
+X = ordinary,
+Y = weak ;
+X = weak,
+Y = superweak.
+
+?- moreEffectiveThan(X, superweak).
+X = weak ;
+X = strong ;
+X = ordinary ;
+
+?- monsterMoveMatch(normal, lechonk, mabosstiff, bodySlam).
+true .
+
+?- moreEffectiveMoveType(shadowPunch,lowKick,normal).
+false.
+
+?- moreEffectiveMoveType(closeCombat, rageFist, normal).
+true .
+
+?- moreEffectiveMove(espathra,shadowBall,annihilape,lowKick).    
+true .
+
+?- moreEffectiveMove(annihilape, shadowPunch, espathra, psybeam).
+true .
